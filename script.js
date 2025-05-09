@@ -40,3 +40,24 @@ document.addEventListener('DOMContentLoaded', function () {
    
 });
  
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    elements.forEach(el => {
+      el.style.animationPlayState = 'paused'; // para evitar que se animen antes de aparecer
+      observer.observe(el);
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded', animateOnScroll);

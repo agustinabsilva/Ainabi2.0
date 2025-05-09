@@ -4,6 +4,9 @@
 /* Importar la fuente Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
 
 /* Estilo para el fondo del body */
 body {
@@ -528,4 +531,81 @@ footer {
 
 .footer-social a:hover {
   color: #6C705E;
+}
+
+.hero-content .bienvenido-img {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideIn 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animaciones básicas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.fade-in-left {
+  opacity: 0;
+  animation: fadeInLeft 2s ease forwards;
+}
+
+.fade-in-right {
+  opacity: 0;
+  animation: fadeInRight 2s ease forwards;
+}
+
+/* Delay helper classes */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+.sobre-nosotros .miembro img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.sobre-nosotros .miembro img:hover {
+  transform: scale(1.05); /* Aumenta suavemente el tamaño */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3); /* Da profundidad */
 }
