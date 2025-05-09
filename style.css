@@ -1,0 +1,275 @@
+/* Importar fuentes de iconos (Font Awesome) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+/* Importar la fuente Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+
+/* Estilo para el fondo del body */
+body {
+    background-color: #f6f3f0; /* Color de fondo */
+    margin: 0; /* Elimina los márgenes predeterminados */
+    font-family: 'Poppins', sans-serif;
+    color: #333; /* Color de texto suave */
+    line-height: 1.6; /* Espaciado entre líneas */   
+}
+
+
+/* Estilo de la barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 30vh /* Aumenta el padding horizontal */
+
+    
+}
+
+/* Logo y nombre de la empresa */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;  
+    
+    
+}
+
+.logo img {
+    height: 50px; /* Ajusta el tamaño del logo según sea necesario */
+    
+    vertical-align: middle;
+}
+
+/* Enlaces de navegación */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px; /* Espacio entre los enlaces */
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+/* Estilo para el enlace "Inicio" en negrita */
+.bold-link {
+    font-weight: 700; /* Negrita */
+}
+
+/* Estilo para los demás enlaces */
+.nav-links a {
+    text-decoration: none;
+    color: #C39B82;
+    font-weight: 400; /* Fuente más fina */
+    transition: color 0.3s ease;   
+    font-size: large;
+    
+}
+
+
+.nav-links a:hover {
+    color: #4d3a2f;
+}
+
+/* Botón "Ingresa" */
+.btn-ingresa {
+    padding: 8px 16px;
+    background-color:#cfb299; /* Verde oscuro */
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    
+}
+
+
+.btn-ingresa:hover {
+    background-color: #b88b66;
+    
+}
+
+/* Icono de hamburguesa (para móviles) */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    width: 25px;
+    height: 3px;
+    background-color: #555;
+    transition: background-color 0.3s ease;
+}
+
+/* * Diseño responsive */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px; /* Reduce el padding en pantallas pequeñas */
+        
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #ffffff;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width:90%; /* Ajusta el ancho del menú al 100% */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 20px; /* Agrega espacio interno */
+    }
+
+    .nav-links.active {
+        display: flex;
+        
+    }
+
+    .nav-links li {
+        margin-bottom: 15px; /* Espacio vertical entre los enlaces */
+    }
+
+    .nav-links a {
+        font-size: 1rem; /* Aumenta el tamaño del texto para pantallas pequeñas */
+        text-align: center; /* Centra los enlaces */
+        white-space: normal; /* Permite que el texto se divida en múltiples líneas si es necesario */
+    }
+
+    .btn-ingresa {
+        width: 100%; /* Hace que el botón ocupe todo el ancho */
+        margin-top: 10px; /* Agrega espacio arriba del botón */
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+    
+}
+    
+
+/*HERO*/
+/* Hero Section */
+.hero {
+    background-image: url('./assets/wallpaper.png'); /* Cambiá este nombre según tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+/* Fondo semitransparente si querés que el texto o imagen se lea mejor */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.4); /* Cambialo o sacalo si no lo necesitás */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.bienvenido-img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive adicional si querés controlar tamaños en pantallas chicas */
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh;
+    }
+
+    .bienvenido-img {
+        max-width: 90%;
+    }
+}
+
+/* Seccion Sobre Nosotros */
+
+
+.section {
+    padding: 50px 20px;
+}
+
+.sobre-nosotros {
+    background-color: #ffffff;
+    
+}
+
+
+h2 {
+    font-size: 3rem;
+    color: #6C705E;
+    margin-bottom: 20px;
+ }   
+
+p{
+ font-size: 1.2rem;
+ color: #6C705E;
+}
+.miembros {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.miembro {
+    text-align: center;
+}
+
+.miembro img {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    
+}
+
+/* Estilo para centrar el contenido */
+.contenido {
+    text-align: center; /* Alineación del texto al centro */
+    padding: 20px; /* Espacio interno alrededor del contenido */
+    
+    
+}
+
+
+/*Responsive seccion sobre nosotros*/
+@media (max-width: 600px) {
+    .miembro img {
+        width: 120px;
+        height: 120px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+

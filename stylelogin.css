@@ -1,0 +1,77 @@
+/* Establece un modelo de caja consistente en todo el documento */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* LOGIN SECTION */
+
+body, html {
+    height: 100%;
+    overflow: hidden; /* evita scroll vertical */
+}
+
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* altura total de la ventana */
+    background-color: #f6f3f0;
+    padding: 20px;
+    background-image: url('./assets/wallpaper.png');
+   
+}
+
+.login-content {
+    background-color: #ffffffce;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.514);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bienvenido-login {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.login-content input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.login-content button {
+    width: 100%;
+    padding: 12px;
+    background-color: #cfb299;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-content button:hover {
+    background-color: #b88b66;
+}
+
+#resultado {
+    margin-top: 15px;
+    color: #6C705E;
+    font-size: 0.9rem;
+}

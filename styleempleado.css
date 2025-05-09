@@ -1,0 +1,149 @@
+/* Fuente y reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f6f3f0;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    background-image: url('./assets/wallpaper.png');
+     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+   
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30vh;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 50px;
+    vertical-align: middle;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #C39B82;
+    font-weight: 400;
+    font-size: large;
+    transition: color 0.3s ease;
+}
+
+.bold-link {
+    font-weight: 700;
+}
+
+.nav-links a:hover {
+    color: #4d3a2f;
+}
+
+.btn-ingresa {
+    padding: 8px 16px;
+    background-color: #cfb299;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.btn-ingresa:hover {
+    background-color: #b88b66;
+}
+
+/* MENÚ HAMBURGUESA (oculto en escritorio) */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    width: 25px;
+    height: 3px;
+    background-color: #555;
+}
+
+/* SECCIÓN INICIO */
+.section {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contenido h1 {
+    font-size: 2.5rem;
+    color: #6C705E;
+    margin-bottom: 20px;
+}
+
+.contenido p {
+    font-size: 1.2rem;
+    color: #4d3a2f;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 90%;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-bottom: 15px;
+    }
+
+    .btn-ingresa {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+}
