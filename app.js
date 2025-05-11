@@ -23,41 +23,73 @@ async function login() {
 
     const doc = await db.collection("users").doc(uid).get();
     if (!doc.exists) {
-      resultado.innerText = "Usuario sin datos registrados.";
+      Swal.fire({
+        icon: "error",
+        title: "Usuario no encontrado",
+        text: "No se encontraron datos registrados para este usuario.",
+        confirmButtonColor: "#b88b66"
+      });      
+      /*resultado.innerText = "Usuario sin datos registrados.";*/
       return;
     }
 
     const datos = doc.data();
 
     if (datos.activo === false) {
-      resultado.innerText = "Tu cuenta está desactivada. Contactá al administrador.";
+      Swal.fire({
+        icon: "warning",
+        title: "Cuenta desactivada",
+        text: "Tu cuenta está inactiva. Comunicate con el administrador.",
+        confirmButtonColor: "#b88b66"
+      });
+
+      /*resultado.innerText = "Tu cuenta está desactivada. Contactá al administrador.";*/
+
       auth.signOut();
       return;
     }
 
     const rol = datos.role;
-    resultado.innerText = `Bienvenido ${datos.nombre} (${rol})`;
+     Swal.fire({
+      icon: "success",
+      title: `Bienvenido ${datos.nombre}`,
+      text: `Rol: ${rol}`,
+      confirmButtonColor: "#b88b66",
+      timer: 4000,
+      showConfirmButton: false
+    });
 
-    switch (rol) {
-      case "admin":
-        window.location.href = "dashboard_admin.html";
-        break;
-      case "supervisor":
-        window.location.href = "supervisor.html";
-        break;
-      case "empleado":
-        window.location.href = "empleado.html";
-        break;
-      case "analista":
-        window.location.href = "analista.html";
-        break;
-      default:
-        resultado.innerText = "Rol no reconocido.";
-    }
+    /*resultado.innerText = `Bienvenido ${datos.nombre} (${rol})`;*/
+  setTimeout(() => {
+      switch (rol) {
+        case "admin":
+          window.location.href = "dashboard_admin.html";
+          break;
+        case "supervisor":
+          window.location.href = "supervisor.html";
+          break;
+        case "empleado":
+          window.location.href = "empleado.html";
+          break;
+        case "analista":
+          window.location.href = "analista.html";
+          break;
+        default:
+          Swal.fire({
+            icon: "error",
+            title: "Rol no reconocido",
+            text: "Comunicate con el administrador.",
+            confirmButtonColor: "#b88b66"
+          });
+      }
+    }, 2000);
 
   } catch (e) {
-    resultado.innerText = `Error: ${e.message}`;
+    Swal.fire({
+      icon: "error",
+      title: "Error al iniciar sesión",
+      text: "Usuario o contraseña no valida",
+      confirmButtonColor: "#b88b66"
+    });
   }
 }
-
-
