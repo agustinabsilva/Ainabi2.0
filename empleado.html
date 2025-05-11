@@ -274,6 +274,38 @@
           if (userDoc.exists) {
             nombre = userDoc.data().nombre || "";
           }
+          
+          // --- NUEVO BLOQUE: Verificar si ya existe autoevaluación este mes ---
+          // Extraer año y mes de la fecha seleccionada
+          const [anioSeleccionado, mesSeleccionado] = fecha.split('-');
+          // Buscar autoevaluaciones de este usuario en el mes y año seleccionados
+          const querySnapshot = await firebase.firestore()
+            .collection('autoevaluaciones')
+            .where('uid', '==', user.uid)
+            .get();
+          
+          let yaExiste = false;
+          querySnapshot.forEach(doc => {
+            const data = doc.data();
+            if (data.fecha) {
+              const [anio, mes] = data.fecha.split('-');
+              if (anio === anioSeleccionado && mes === mesSeleccionado) {
+                yaExiste = true;
+              }
+            }
+          });
+          
+          if (yaExiste) {
+            Swal.fire({
+              title: "Ya realizaste tu autoevaluación este mes",
+              text: "Por favor, vuelve el próximo mes para realizar una nueva autoevaluación.",
+              icon: "info",
+              confirmButtonColor: "#b88b66"
+            });
+            return;
+          }
+          // --- FIN NUEVO BLOQUE ---
+          
           await firebase.firestore().collection('autoevaluaciones').add({
             uid: user.uid,
             nombre: nombre,
