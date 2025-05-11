@@ -62,18 +62,16 @@ async function login() {
     /*resultado.innerText = `Bienvenido ${datos.nombre} (${rol})`;*/
   setTimeout(() => {
       switch (rol) {
-        case "admin":
+        case "Admin":
           window.location.href = "dashboard_admin.html";
           break;
-        case "supervisor":
+        case "Supervisor":
           window.location.href = "supervisor.html";
           break;
-        case "empleado":
+        case "Empleado":
           window.location.href = "empleado.html";
           break;
-        case "analista":
-          window.location.href = "analista.html";
-          break;
+        
         default:
           Swal.fire({
             icon: "error",
