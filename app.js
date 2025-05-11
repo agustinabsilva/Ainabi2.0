@@ -93,3 +93,20 @@ async function login() {
     });
   }
 }
+
+//Perfil
+auth.onAuthStateChanged(async (user) => {
+  if (user) {
+    const uid = user.uid;
+    const doc = await db.collection("users").doc(uid).get();
+    if (doc.exists) {
+      const datos = doc.data();
+      document.getElementById("user-nombre").textContent = datos.nombre || "Sin nombre";
+      document.getElementById("user-dni").textContent = datos.dni || "Sin DNI";
+      document.getElementById("user-email").textContent = datos.email || user.email || "Sin email";
+      document.getElementById("user-rol").textContent = datos.role || "Sin rol";
+      document.getElementById("user-area").textContent = datos.area || "Sin área";
+      document.getElementById("user-jerarquia").textContent = datos.jerarquia || "Sin jerarquía";
+    }
+  }
+});

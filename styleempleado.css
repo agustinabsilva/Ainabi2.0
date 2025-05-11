@@ -198,3 +198,23 @@ body {
   border-radius: 10px;
   overflow: hidden;
 }
+
+.nav-activa {
+  background: #5ec9a7 !important;
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px #b7d7c2;
+}
+.btn-ainabi {
+  background-color: #cfb299;
+  color: #fff;
+  border-radius: 12px;
+  font-weight: 700;
+  border: 2px solid #e6e2c3;
+  transition: background-color 0.3s;
+}
+.btn-ainabi:hover {
+  background-color: #b88b66;
+  color:white
+}
